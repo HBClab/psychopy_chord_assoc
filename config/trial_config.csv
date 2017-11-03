@@ -1,0 +1,5 @@
+left_stim,right_stim,left_stim_key,right_stim_key,left_stim_key_img,right_stim_key_img
+stimuli/faces/neutral_y_f_4.bmp,stimuli/faces/neutral_o_f_3.bmp,w,i,stimuli/responses/Left.bmp,stimuli/responses/Middle.bmp
+stimuli/faces/neutral_y_f_4.bmp,stimuli/faces/neutral_o_f_5.bmp,e,o,stimuli/responses/Middle.bmp,stimuli/responses/Right.bmp
+stimuli/faces/neutral_y_f_16.bmp,stimuli/faces/neutral_o_f_3.bmp,e,u,stimuli/responses/Middle.bmp,stimuli/responses/Left.bmp
+stimuli/faces/neutral_y_f_16.bmp,stimuli/faces/neutral_o_f_5.bmp,r,i,stimuli/responses/Right.bmp,stimuli/responses/Middle.bmp
