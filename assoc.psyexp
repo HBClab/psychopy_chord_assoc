@@ -2,25 +2,25 @@
 <PsychoPy2experiment encoding="utf-8" version="1.85.3">
   <Settings>
     <Param name="Monitor" updates="None" val="testMonitor" valType="str"/>
-    <Param name="color" updates="None" val="$[0,0,0]" valType="str"/>
+    <Param name="color" updates="None" val="black" valType="str"/>
     <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
-    <Param name="Experiment info" updates="None" val="{'participant':'', 'session':'001'}" valType="code"/>
+    <Param name="Experiment info" updates="None" val="{u'session': u'001', u'participant': u''}" valType="code"/>
     <Param name="JS libs" updates="None" val="packaged" valType="str"/>
     <Param name="Units" updates="None" val="use prefs" valType="str"/>
     <Param name="Save excel file" updates="None" val="False" valType="bool"/>
     <Param name="Enable Escape" updates="None" val="True" valType="bool"/>
     <Param name="Save psydat file" updates="None" val="True" valType="bool"/>
-    <Param name="Window size (pixels)" updates="None" val="(1024, 768)" valType="code"/>
+    <Param name="Window size (pixels)" updates="None" val="[1366, 768]" valType="code"/>
     <Param name="Full-screen window" updates="None" val="True" valType="bool"/>
     <Param name="blendMode" updates="None" val="avg" valType="str"/>
     <Param name="Use version" updates="None" val="" valType="str"/>
     <Param name="HTML path" updates="None" val="html" valType="str"/>
-    <Param name="Save csv file" updates="None" val="False" valType="bool"/>
+    <Param name="Save csv file" updates="None" val="True" valType="bool"/>
     <Param name="OSF Project ID" updates="None" val="" valType="str"/>
     <Param name="Save log file" updates="None" val="True" valType="bool"/>
     <Param name="Save wide csv file" updates="None" val="True" valType="bool"/>
     <Param name="Show mouse" updates="None" val="False" valType="bool"/>
-    <Param name="Data filename" updates="None" val="u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])" valType="code"/>
+    <Param name="Data filename" updates="None" val="u'data/sub-{participant_label}/ses-{session_label}/beh/sub-{participant_label}_ses-{session_label}_task-assoc_events'.format(participant_label=expInfo['participant'], session_label=expInfo['session'])" valType="code"/>
     <Param name="Show info dlg" updates="None" val="True" valType="bool"/>
     <Param name="expName" updates="None" val="assoc" valType="str"/>
     <Param name="logging level" updates="None" val="exp" valType="code"/>
@@ -31,7 +31,7 @@
       <CodeComponent name="compute_block_feedback">
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="name" updates="None" val="compute_block_feedback" valType="code"/>
-        <Param name="Begin Routine" updates="constant" val="left_resp_perc_corr = assoc_trials.data['left_stim_resp.corr'].sum()/len(assoc_trials.data['left_stim_resp.corr'])&amp;#10;right_resp_perc_corr = assoc_trials.data['right_stim_resp.corr'].sum()/len(assoc_trials.data['right_stim_resp.corr'])&amp;#10;&amp;#10;left_resp_mean_rt = assoc_trials.data['left_stim_resp.rt'].mean()&amp;#10;right_resp_mean_rt = assoc_trials.data['right_stim_resp.rt'].mean()&amp;#10;&amp;#10;block_feedback_msg = &quot;&quot;&quot;&amp;#10;    Block Complete&amp;#10;&amp;#10;    Left Percent Correct  : {left_resp_acc}&amp;#10;    Right Percent Correct : {right_resp_acc}&amp;#10;&amp;#10;    Left Mean RT  : {left_resp_rt}&amp;#10;    Right Mean RT : {right_resp_rt}&amp;#10;&amp;#10;    Press Space to Continue&amp;#10;&quot;&quot;&quot;.format(left_resp_acc=left_resp_perc_corr,&amp;#10;           right_resp_acc=right_resp_perc_corr,&amp;#10;           left_resp_rt=left_resp_mean_rt,&amp;#10;           right_resp_rt=right_resp_mean_rt)&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="left_resp_perc_corr = assoc_trials.data['left_stim_resp.corr'].sum()/len(assoc_trials.data['left_stim_resp.corr'])&amp;#10;right_resp_perc_corr = assoc_trials.data['right_stim_resp.corr'].sum()/len(assoc_trials.data['right_stim_resp.corr'])&amp;#10;&amp;#10;left_resp_mean_rt = assoc_trials.data['left_stim_resp.rt'].mean() * 1000&amp;#10;right_resp_mean_rt = assoc_trials.data['right_stim_resp.rt'].mean() * 1000&amp;#10;&amp;#10;block_feedback_msg = &quot;&quot;&quot;&amp;#10;    Block Complete&amp;#10;&amp;#10;    Left Percent Correct  : {left_resp_acc}%&amp;#10;    Right Percent Correct : {right_resp_acc}%&amp;#10;&amp;#10;    Left Mean RT  : {left_resp_rt} ms&amp;#10;    Right Mean RT : {right_resp_rt} ms&amp;#10;&amp;#10;    Press Space to Continue&amp;#10;&quot;&quot;&quot;.format(left_resp_acc=left_resp_perc_corr,&amp;#10;           right_resp_acc=right_resp_perc_corr,&amp;#10;           left_resp_rt=left_resp_mean_rt,&amp;#10;           right_resp_rt=right_resp_mean_rt)&amp;#10;" valType="extendedCode"/>
         <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
@@ -404,18 +404,18 @@
   </Routines>
   <Flow>
     <Routine name="welcome"/>
-    <LoopInitiator loopType="TrialHandler" name="blocks">
+    <Routine name="instructions"/>
+    <LoopInitiator loopType="TrialHandler" name="block">
       <Param name="conditionsFile" updates="None" val="" valType="str"/>
-      <Param name="name" updates="None" val="blocks" valType="code"/>
-      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="name" updates="None" val="block" valType="code"/>
+      <Param name="isTrials" updates="None" val="False" valType="bool"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
       <Param name="loopType" updates="None" val="random" valType="str"/>
       <Param name="nReps" updates="None" val="14" valType="code"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="conditions" updates="None" val="None" valType="str"/>
-      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="Selected rows" updates="None" val="" valType="code"/>
     </LoopInitiator>
-    <Routine name="instructions"/>
     <Routine name="get_ready"/>
     <LoopInitiator loopType="TrialHandler" name="assoc_trials">
       <Param name="conditionsFile" updates="None" val="config/trial_config.csv" valType="str"/>
@@ -425,7 +425,7 @@
       <Param name="loopType" updates="None" val="random" valType="str"/>
       <Param name="nReps" updates="None" val="6" valType="code"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
-      <Param name="conditions" updates="None" val="[{u'right_stim_key': u'i', u'left_stim_key': u'w', u'left_stim': u'stimuli/faces/neutral_y_f_4.bmp', u'right_stim_key_img': u'Middle.bmp', u'left_stim_key_img': u'stimuli/responses/Left.bmp', u'right_stim': u'neutral_o_f_3.bmp'}, {u'right_stim_key': u'o', u'left_stim_key': u'e', u'left_stim': u'stimuli/faces/neutral_y_f_4.bmp', u'right_stim_key_img': u'Right.bmp', u'left_stim_key_img': u'stimuli/responses/Middle.bmp', u'right_stim': u'neutral_o_f_5.bmp'}, {u'right_stim_key': u'u', u'left_stim_key': u'e', u'left_stim': u'stimuli/faces/neutral_y_f_16.bmp', u'right_stim_key_img': u'Left.bmp', u'left_stim_key_img': u'stimuli/responses/Middle.bmp', u'right_stim': u'neutral_o_f_3.bmp'}, {u'right_stim_key': u'i', u'left_stim_key': u'r', u'left_stim': u'stimuli/faces/neutral_y_f_16.bmp', u'right_stim_key_img': u'Middle.bmp', u'left_stim_key_img': u'stimuli/responses/Right.bmp', u'right_stim': u'neutral_o_f_5.bmp'}]" valType="str"/>
+      <Param name="conditions" updates="None" val="[{u'right_stim_key': u'i', u'left_stim_key': u'w', u'left_stim_key_img': u'stimuli/responses/Left.bmp', u'right_stim_key_img': u'Middle.bmp', u'left_stim': u'stimuli/faces/neutral_y_f_4.bmp', u'right_stim': u'neutral_o_f_3.bmp'}, {u'right_stim_key': u'o', u'left_stim_key': u'e', u'left_stim_key_img': u'stimuli/responses/Middle.bmp', u'right_stim_key_img': u'Right.bmp', u'left_stim': u'stimuli/faces/neutral_y_f_4.bmp', u'right_stim': u'neutral_o_f_5.bmp'}, {u'right_stim_key': u'u', u'left_stim_key': u'e', u'left_stim_key_img': u'stimuli/responses/Middle.bmp', u'right_stim_key_img': u'Left.bmp', u'left_stim': u'stimuli/faces/neutral_y_f_16.bmp', u'right_stim': u'neutral_o_f_3.bmp'}, {u'right_stim_key': u'i', u'left_stim_key': u'r', u'left_stim_key_img': u'stimuli/responses/Right.bmp', u'right_stim_key_img': u'Middle.bmp', u'left_stim': u'stimuli/faces/neutral_y_f_16.bmp', u'right_stim': u'neutral_o_f_5.bmp'}]" valType="str"/>
       <Param name="Selected rows" updates="None" val="" valType="str"/>
     </LoopInitiator>
     <Routine name="fixation"/>
@@ -433,7 +433,7 @@
     <Routine name="trial_feedback"/>
     <LoopTerminator name="assoc_trials"/>
     <Routine name="block_feedback"/>
-    <LoopTerminator name="blocks"/>
+    <LoopTerminator name="block"/>
     <Routine name="good_bye"/>
   </Flow>
 </PsychoPy2experiment>
