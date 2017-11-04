@@ -328,7 +328,7 @@
         <Param name="stopVal" updates="constant" val="$show_time" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="mask" updates="constant" val="None" valType="str"/>
-        <Param name="pos" updates="constant" val="(-0.3, -0.3)" valType="code"/>
+        <Param name="pos" updates="constant" val="(-0.3, -0.5)" valType="code"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
@@ -338,7 +338,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
         <Param name="image" updates="set every repeat" val="$left_stim_key_img" valType="str"/>
-        <Param name="size" updates="constant" val="(0.2, 0.2)" valType="code"/>
+        <Param name="size" updates="constant" val="(0.4, 0.2)" valType="code"/>
       </ImageComponent>
       <ImageComponent name="right_stim_key_ans">
         <Param name="opacity" updates="constant" val="1" valType="code"/>
@@ -350,7 +350,7 @@
         <Param name="stopVal" updates="constant" val="$show_time" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="mask" updates="constant" val="None" valType="str"/>
-        <Param name="pos" updates="constant" val="(0.3, -0.3)" valType="code"/>
+        <Param name="pos" updates="constant" val="(0.3, -0.5)" valType="code"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
@@ -360,7 +360,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
         <Param name="image" updates="set every repeat" val="$right_stim_key_img" valType="str"/>
-        <Param name="size" updates="constant" val="(0.2, 0.2)" valType="code"/>
+        <Param name="size" updates="constant" val="(0.4, 0.2)" valType="code"/>
       </ImageComponent>
     </Routine>
     <Routine name="instructions">
@@ -414,7 +414,7 @@
       <Param name="nReps" updates="None" val="14" valType="code"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="conditions" updates="None" val="None" valType="str"/>
-      <Param name="Selected rows" updates="None" val="" valType="code"/>
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
     </LoopInitiator>
     <Routine name="get_ready"/>
     <LoopInitiator loopType="TrialHandler" name="assoc_trials">
@@ -425,7 +425,7 @@
       <Param name="loopType" updates="None" val="random" valType="str"/>
       <Param name="nReps" updates="None" val="6" valType="code"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
-      <Param name="conditions" updates="None" val="[{u'right_stim_key': u'i', u'left_stim_key': u'w', u'left_stim_key_img': u'stimuli/responses/Left.bmp', u'right_stim_key_img': u'Middle.bmp', u'left_stim': u'stimuli/faces/neutral_y_f_4.bmp', u'right_stim': u'neutral_o_f_3.bmp'}, {u'right_stim_key': u'o', u'left_stim_key': u'e', u'left_stim_key_img': u'stimuli/responses/Middle.bmp', u'right_stim_key_img': u'Right.bmp', u'left_stim': u'stimuli/faces/neutral_y_f_4.bmp', u'right_stim': u'neutral_o_f_5.bmp'}, {u'right_stim_key': u'u', u'left_stim_key': u'e', u'left_stim_key_img': u'stimuli/responses/Middle.bmp', u'right_stim_key_img': u'Left.bmp', u'left_stim': u'stimuli/faces/neutral_y_f_16.bmp', u'right_stim': u'neutral_o_f_3.bmp'}, {u'right_stim_key': u'i', u'left_stim_key': u'r', u'left_stim_key_img': u'stimuli/responses/Right.bmp', u'right_stim_key_img': u'Middle.bmp', u'left_stim': u'stimuli/faces/neutral_y_f_16.bmp', u'right_stim': u'neutral_o_f_5.bmp'}]" valType="str"/>
+      <Param name="conditions" updates="None" val="[{u'right_stim_key': u'i', u'left_stim_key': u'w', u'left_stim': u'stimuli/faces/neutral_y_f_4.bmp', u'right_stim_key_img': u'Middle.bmp', u'left_stim_key_img': u'stimuli/responses/Left.bmp', u'right_stim': u'neutral_o_f_3.bmp'}, {u'right_stim_key': u'o', u'left_stim_key': u'e', u'left_stim': u'stimuli/faces/neutral_y_f_4.bmp', u'right_stim_key_img': u'Right.bmp', u'left_stim_key_img': u'stimuli/responses/Middle.bmp', u'right_stim': u'neutral_o_f_5.bmp'}, {u'right_stim_key': u'u', u'left_stim_key': u'e', u'left_stim': u'stimuli/faces/neutral_y_f_16.bmp', u'right_stim_key_img': u'Left.bmp', u'left_stim_key_img': u'stimuli/responses/Middle.bmp', u'right_stim': u'neutral_o_f_3.bmp'}, {u'right_stim_key': u'i', u'left_stim_key': u'r', u'left_stim': u'stimuli/faces/neutral_y_f_16.bmp', u'right_stim_key_img': u'Middle.bmp', u'left_stim_key_img': u'stimuli/responses/Right.bmp', u'right_stim': u'neutral_o_f_5.bmp'}]" valType="str"/>
       <Param name="Selected rows" updates="None" val="" valType="str"/>
     </LoopInitiator>
     <Routine name="fixation"/>
